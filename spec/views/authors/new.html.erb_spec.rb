@@ -11,8 +11,9 @@ RSpec.describe "authors/new.html.erb", type: :view do
     expect(rendered).to have_field("Last name")
   end
 
-  it "has field homepage" do
+  it "has button create author" do
     render :template => "authors/new.html.erb"
-    expect(rendered).to have_field("Homepage")
+    expect(rendered).to have_button("Create Author")
   end
+
 end
