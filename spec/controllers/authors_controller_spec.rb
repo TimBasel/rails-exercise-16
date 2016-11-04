@@ -25,4 +25,15 @@ RSpec.describe AuthorsController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    it "returns http success" do
+      @author = create(:author)
+      get :edit, id: @author.id
+      expect(response).to have_http_status(:success)
+      Author.delete(@author)
+    end
+  end
+
+
+
 end
