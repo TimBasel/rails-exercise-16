@@ -13,4 +13,10 @@ RSpec.describe "authors/show.html.erb", type: :view do
     render :template => "authors/show.html.erb"
     expect(rendered).to have_text("Last name: Turing")
   end
+
+  it "shows the homepage" do
+    assign(:author, build(:author))
+    render :template => "authors/show.html.erb"
+    expect(rendered).to have_text("Homepage: http://wikipedia.de/Alan_Turing ")
+  end
 end
