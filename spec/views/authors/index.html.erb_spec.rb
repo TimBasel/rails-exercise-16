@@ -3,8 +3,12 @@ require 'rails_helper'
 RSpec.describe "authors/index.html.erb", type: :view do
 
   before(:context) do
-    create(:author)
+    @author = create(:author)
     assign(:authors, Author.all)
+  end
+
+  after(:context) do
+    Author.delete(@author)
   end
 
   before(:example) do
