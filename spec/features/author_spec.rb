@@ -13,4 +13,16 @@ describe "New Author Page", :type => :feature do
 
     Author.find_by!(:first_name => 'Alan', :last_name => 'Turing')
   end
+
+  it "should require a last name to create an author" do
+    visit new_author_path
+
+    fill_in 'First name', with: 'Alan'
+    fill_in 'Homepage', with: 'http://wikipedia.de/Alan_Turing'
+    
+    click_button 'Create Author'
+
+    expect(page).to have_text("Last name can't be blank")
+
+  end
 end
