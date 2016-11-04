@@ -1,1 +1,10 @@
 <h1>Edit Author</h1>
+
+<%= form_for :author, url: authors_path(@author), method: :patch do | f | %>
+
+<p>
+ <%= f.label :first_name %><br>
+ <%= f.text_field :first_name %>
+</p>
+
+<% end %>
