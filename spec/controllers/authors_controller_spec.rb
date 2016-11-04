@@ -21,6 +21,7 @@ RSpec.describe AuthorsController, type: :controller do
       @author = create(:author)
       get :show, id: @author.id
       expect(response).to have_http_status(:success)
+      Author.delete(@author)
     end
   end
 
