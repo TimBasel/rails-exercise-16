@@ -20,7 +20,7 @@ RSpec.describe "authors/index.html.erb", type: :view do
     create(:author)
     assign(:authors, Author.all)
     render :template => "authors/index.html.erb"
-    expect(rendered).to have_css("a", :text => "add author")
+    expect(rendered).to have_css("a", :text => "Add author")
   end
 
     
