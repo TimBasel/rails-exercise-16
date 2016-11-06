@@ -25,6 +25,6 @@ RSpec.describe "papers/index", type: :view do
 
   it "has a add paper link" do
     render
-    expect(rendered).to have_css("a", text: "Add Paper")
+    expect(rendered).to have_css("a", text: "Add paper")
   end
 end
