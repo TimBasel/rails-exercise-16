@@ -26,7 +26,7 @@ class AuthorsController < ApplicationController
     end
 
     def update
-
+        redirect_to author_path(params[:id])
     end
 
     private
