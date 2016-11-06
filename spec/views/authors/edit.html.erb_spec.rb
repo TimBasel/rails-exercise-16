@@ -18,4 +18,8 @@ RSpec.describe "authors/edit.html.erb", type: :view do
   it "displays author first name" do
     expect(rendered).to have_field("First name")
   end
+
+  it "displays a submit button" do
+    expect(rendered).to have_css('input[name="commit"]')
+  end
 end
