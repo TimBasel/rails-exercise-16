@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106160910) do
-
-  create_table "author_and_papers", id: false, force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "paper_id"
-  end
-
-  add_index "author_and_papers", ["author_id"], name: "index_author_and_papers_on_author_id"
-  add_index "author_and_papers", ["paper_id"], name: "index_author_and_papers_on_paper_id"
+ActiveRecord::Schema.define(version: 20161106162215) do
 
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +20,14 @@ ActiveRecord::Schema.define(version: 20161106160910) do
     t.string   "last_name"
     t.string   "homepage"
   end
+
+  create_table "authors_papers", id: false, force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "paper_id"
+  end
+
+  add_index "authors_papers", ["author_id"], name: "index_authors_papers_on_author_id"
+  add_index "authors_papers", ["paper_id"], name: "index_authors_papers_on_paper_id"
 
   create_table "papers", force: :cascade do |t|
     t.string   "title"
