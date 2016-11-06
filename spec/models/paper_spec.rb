@@ -16,4 +16,9 @@ RSpec.describe Paper, type: :model do
     @paper = Paper.new(title: "whatever", venue: "1337")
     expect(@paper).to_not be_valid
   end
+
+  it "requires year to be an integer" do
+    @paper = Paper.new(title: "what", venue: "ever", year: "forgotten")
+    expect(@paper).to_not be_valid
+  end
 end
