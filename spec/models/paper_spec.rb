@@ -21,4 +21,9 @@ RSpec.describe Paper, type: :model do
     @paper = Paper.new(title: "what", venue: "ever", year: "forgotten")
     expect(@paper).to_not be_valid
   end
+
+  it "habtm authors" do
+    @paper = Paper.new
+    expect(@paper).to respond_to(:authors)
+  end
 end
