@@ -3,19 +3,19 @@ require 'rails_helper'
 RSpec.describe "authors/edit.html.erb", type: :view do
 
   before(:context) do
-    @author = create(:author)
-    assign(:authors, Author.all)
+    @author = build(:author)
+    assign(:author, @author)
   end
 
   after(:context) do
-    Author.delete(@author)
+    #Author.delete(@author)
   end
 
   before(:example) do
     render :template => "authors/edit.html.erb"
   end
 
-  it "displays author name" do
+  it "displays author first name" do
     expect(rendered).to have_field("First name")
   end
 end
