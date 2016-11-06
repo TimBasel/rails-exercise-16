@@ -23,6 +23,19 @@ describe "New Author Page", :type => :feature do
     click_button 'Create Author'
 
     expect(page).to have_text("Last name can't be blank")
-
   end
+
+  it "should save changes to the author after editing" do
+    @author = create(:author)
+    visit edit_author_path(@author)
+
+    fill_in 'First name', with: 'Alan Mathison'
+    
+    click_button 'Save changes'
+
+    @author = Author.find(@author.id)
+    expect(@author.first_name).to eq("Alan Mathison")
+    Author.delete(@author)
+  end
+
 end
