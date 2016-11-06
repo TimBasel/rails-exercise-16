@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "papers/show", type: :view do
   before(:each) do
-    @paper = assign(:paper, Paper.create!(
-      :title => "Title",
-      :venue => "Venue",
-      :year => 1
-    ))
+    @author = create(:author)
+    @paper = create(:paper)
+    assign(:paper, @paper)
+  end
+
+  after(:each) do
+    Author.delete(@author)
+    Paper.delete(@paper)
   end
 
   it "renders attributes in <p>" do
@@ -15,4 +18,11 @@ RSpec.describe "papers/show", type: :view do
     expect(rendered).to match(/Venue/)
     expect(rendered).to match(/1/)
   end
+
+  it "shows the authors name" do
+    render
+    expect(rendered).to have_text("Alan Turing")
+  end
+
+
 end
