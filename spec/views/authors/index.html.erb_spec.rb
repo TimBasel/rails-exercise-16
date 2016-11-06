@@ -34,4 +34,8 @@ RSpec.describe "authors/index.html.erb", type: :view do
   it "links to the author edit page" do
     expect(rendered).to have_css("a", :text => "Edit")
   end
+
+  it "has a destroy author link" do
+    expect(rendered).to have_css("a", :text => "Destroy")
+  end
 end
