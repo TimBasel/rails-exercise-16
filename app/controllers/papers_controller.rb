@@ -28,6 +28,7 @@ class PapersController < ApplicationController
     if @paper.save
       redirect_to @paper, notice: 'Paper was successfully created.'
     else
+      @authors = Author.all
       render :new
     end
   end
