@@ -2,16 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "papers/edit", type: :view do
   before(:each) do
-    @paper = assign(:paper, Paper.create!(
-      :title => "MyString",
-      :venue => "MyString",
-      :year => 1
-    ))
+    @paper = create(:paper)
+    assign(:paper, @paper)
     assign(:authors, Author.all)
-
   end
 
   after(:each) do
+    Paper.delete(@paper)
   end
 
   it "renders the edit paper form" do
@@ -35,5 +32,10 @@ RSpec.describe "papers/edit", type: :view do
     expect(rendered).to have_select("paper_author_id_3")
     expect(rendered).to have_select("paper_author_id_4")
     expect(rendered).to have_select("paper_author_id_5")
+  end
+
+  it "preselects the author" do
+    render
+    expect(rendered).to have_select("paper_author_id_1", :selected => "Alan Turing")
   end
 end
