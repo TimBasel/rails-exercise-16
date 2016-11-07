@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :papers
-  resources :papers
-  resources :papers
-  resources :papers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,6 +14,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :authors
+  resources :papers
 
   # Example resource route with options:
   #   resources :products do
