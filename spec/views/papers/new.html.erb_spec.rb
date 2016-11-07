@@ -7,6 +7,8 @@ RSpec.describe "papers/new", type: :view do
       :venue => "MyString",
       :year => 1
     ))
+
+    assign(:authors, Author.all)
   end
 
   it "renders new paper form" do
