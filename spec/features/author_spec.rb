@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "New Author Page", :type => :feature do
+describe "Author Pages", :type => :feature do
   
   it "should create a new author" do
     visit new_author_path

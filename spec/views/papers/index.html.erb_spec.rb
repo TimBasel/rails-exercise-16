@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "papers/index", type: :view do
-  before(:each) do
+ before(:each) do
     assign(:papers, [
       Paper.create!(
         :title => "Title",
@@ -13,7 +13,7 @@ RSpec.describe "papers/index", type: :view do
         :venue => "Venue",
         :year => 1
       )
-    ])
+])
   end
 
   it "renders a list of papers" do
